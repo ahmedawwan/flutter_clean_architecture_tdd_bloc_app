@@ -15,7 +15,7 @@ class UserModel extends User {
   DataMap toMap() {
     return <String, dynamic>{
       'id': id,
-      'createdAt': createdAt,
+      'createdAt': createdAt.toString(),
       'name': name,
       'avatar': avatar,
     };
@@ -24,7 +24,7 @@ class UserModel extends User {
   UserModel.empty()
       : this(
           id: "1",
-          createdAt: DateTime.now(),
+          createdAt: DateTime.parse("2023-12-29 14:45:38.610989"),
           avatar: "_empty.avatar",
           name: "_empty.name",
         );
