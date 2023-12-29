@@ -16,7 +16,7 @@ class User extends Equatable {
   User.empty()
       : this(
           id: "1",
-          createdAt: DateTime.parse("2023-12-28T08:15:03.565Z"),
+          createdAt: DateTime.parse("2023-12-29 14:45:38.610989"),
           avatar: "_empty.avatar",
           name: "_empty.name",
         );
