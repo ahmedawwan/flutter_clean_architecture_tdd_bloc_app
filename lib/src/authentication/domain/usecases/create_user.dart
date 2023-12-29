@@ -27,6 +27,13 @@ class CreateUserParams extends Equatable {
     required this.createdAt,
   });
 
+  CreateUserParams.empty()
+      : this(
+          createdAt: DateTime.now(),
+          avatar: "_empty.avatar",
+          name: "_empty.name",
+        );
+
   @override
   List<Object?> get props => [
         name,

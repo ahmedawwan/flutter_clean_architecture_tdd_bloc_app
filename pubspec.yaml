@@ -19,6 +19,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  # To mock APIs
+  mocktail: ^1.0.2
+  # For bloc tests
   bloc_test: ^9.1.5
   flutter_lints: ^2.0.0
 flutter:

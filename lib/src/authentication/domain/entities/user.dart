@@ -22,6 +22,14 @@ class User extends Equatable {
     };
   }
 
+  User.empty()
+      : this(
+          id: 1,
+          createdAt: DateTime.now(),
+          avatar: "_empty.avatar",
+          name: "_empty.name",
+        );
+
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
       id: int.parse(map['id'] as String),

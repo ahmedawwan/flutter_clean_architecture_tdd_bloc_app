@@ -292,7 +292,7 @@ packages:
     source: hosted
     version: "1.0.4"
   mocktail:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: mocktail
       sha256: f603ebd85a576e5914870b02e5839fc5d0243b867bf710651cf239a28ebb365e
