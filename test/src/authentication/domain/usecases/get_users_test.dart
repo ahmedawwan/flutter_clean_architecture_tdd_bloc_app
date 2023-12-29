@@ -17,7 +17,7 @@ void main() {
     },
   );
   test(
-      'Should call the [AuthenticationRepository.getUsers] and return [List<User>]',
+      'should call the [AuthenticationRepository.getUsers] and return [List<User>]',
       () async {
     // Arrange
     when(

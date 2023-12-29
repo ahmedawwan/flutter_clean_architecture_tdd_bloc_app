@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class User extends Equatable {
-  final int id;
+  final String id;
   final DateTime createdAt;
   final String name;
   final String avatar;
@@ -13,34 +13,18 @@ class User extends Equatable {
     required this.avatar,
   });
 
-  Map<String, dynamic> toMap() {
-    return <String, dynamic>{
-      'id': id,
-      'createdAt': createdAt,
-      'name': name,
-      'avatar': avatar,
-    };
-  }
-
   User.empty()
       : this(
-          id: 1,
-          createdAt: DateTime.now(),
+          id: "1",
+          createdAt: DateTime.parse("2023-12-28T08:15:03.565Z"),
           avatar: "_empty.avatar",
           name: "_empty.name",
         );
 
-  factory User.fromMap(Map<String, dynamic> map) {
-    return User(
-      id: int.parse(map['id'] as String),
-      createdAt: DateTime.parse(map['createdAt'] as String),
-      name: map['name'] as String,
-      avatar: map['avatar'] as String,
-    );
-  }
-
   @override
   List<Object?> get props => <Object?>[
         id,
+        name,
+        avatar,
       ];
 }

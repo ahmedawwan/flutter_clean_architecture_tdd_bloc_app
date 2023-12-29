@@ -25,7 +25,7 @@ void main() {
       // registerFallbackValue(User());
     },
   );
-  test('Should call the [AuthenticationRepository.createUser]', () async {
+  test('should call the [AuthenticationRepository.createUser]', () async {
     // Arrange
     when(
       () => repository.createUser(
