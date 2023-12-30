@@ -1,7 +1,10 @@
+import 'package:clean_architecture_tdd_bloc_app/core/errors/exceptions.dart';
+import 'package:clean_architecture_tdd_bloc_app/core/errors/failure.dart';
 import 'package:clean_architecture_tdd_bloc_app/core/utils/typedef.dart';
 import 'package:clean_architecture_tdd_bloc_app/src/authentication/data/datasources/authentication_remote_data_source.dart';
 import 'package:clean_architecture_tdd_bloc_app/src/authentication/domain/entities/user.dart';
 import 'package:clean_architecture_tdd_bloc_app/src/authentication/domain/repositories/authentication_repository.dart';
+import 'package:dartz/dartz.dart';
 
 class AuthenticationRepositoryImplementations
     implements AuthenticationRepository {
@@ -16,11 +19,18 @@ class AuthenticationRepositoryImplementations
     required String avatar,
   }) async {
     // call the remote data source
-    _remoteDataSource.createUser(
-      createdAt: createdAt,
-      name: name,
-      avatar: avatar,
-    );
+    try {
+      _remoteDataSource.createUser(
+        createdAt: createdAt,
+        name: name,
+        avatar: avatar,
+      );
+    } on ApiException catch (e) {
+      return Left(
+        ApiFailure.fromException(e),
+      );
+    }
+    return const Right(null);
 
     // check if the method returns the proper data
 
