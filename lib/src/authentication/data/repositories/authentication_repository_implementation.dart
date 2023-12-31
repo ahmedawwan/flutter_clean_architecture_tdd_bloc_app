@@ -40,7 +40,14 @@ class AuthenticationRepositoryImplementations
   }
 
   @override
-  ResultFuture<List<User>> getUsers() {
-    throw UnimplementedError();
+  ResultFuture<List<User>> getUsers() async {
+    try {
+      final result = await _remoteDataSource.getUsers();
+      return Right(result);
+    } on ApiException catch (e) {
+      return Left(
+        ApiFailure.fromException(e),
+      );
+    }
   }
 }
